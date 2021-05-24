@@ -1,0 +1,14 @@
+#!/bin/bash -e
+host=$1
+if [ -z "$host" ]; then
+  echo "Usage: $0 host" 1>&2
+  exit 1
+fi
+
+local_files=`dirname $0`/../files
+remote_root_files=/tmp/cie-root-files
+rsync -av $local_files/ec2-user/ $host:
+rsync -av --delete $local_files/root/ $host:$remote_root_files
+ssh $host sudo rsync -rlptv $remote_root_files/ /
+
+ssh $host sudo yum install -y emacs
