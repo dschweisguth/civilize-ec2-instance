@@ -1,0 +1,3 @@
+Configures an AWS EC2 instance, assumed to be running Amazon Linux 2, to be slightly more pleasant to use interactively.
+
+In addition to configuration meant to affect interactive use, this tool also configures ec2-user to source shell scripts in ~/.bash_profile.d. Other software which runs as ec2-user can use that mechanism to load its configuration.
