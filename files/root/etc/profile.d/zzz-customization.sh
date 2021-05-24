@@ -18,10 +18,6 @@ fi
 
 for i in $HOME/.bash_profile.d/*.sh; do
   if [ -r "$i" ]; then
-    if [ "${-#*i}" != "$-" ]; then
-      . "$i"
-    else
-      . "$i" > /dev/null
-    fi
+    . "$i"
   fi
 done
