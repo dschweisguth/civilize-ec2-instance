@@ -5,10 +5,13 @@ if [ -z "$host" ]; then
   exit 1
 fi
 
+echo Installing files...
 local_files=`dirname $0`/../files
 remote_root_files=/tmp/cie-root-files
 rsync -av --omit-dir-times $local_files/ec2-user/ $host:
 rsync -av --delete $local_files/root/ $host:$remote_root_files
 ssh $host sudo rsync -rlptv --omit-dir-times $remote_root_files/ /
+echo
 
+echo Installing packages...
 ssh $host sudo yum install -y emacs
