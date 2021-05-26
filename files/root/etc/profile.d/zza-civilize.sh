@@ -2,6 +2,7 @@ if [ ! -t 0 ]; then
   return
 fi
 
+export EDITOR=emacs
 export LESS=-FX
 
 unalias egrep
