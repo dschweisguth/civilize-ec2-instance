@@ -1,0 +1,23 @@
+[user]
+	name = EC2 User
+	email = ec2-user@example.com
+[alias]
+	b = branch
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	debranch = !git branch -D $1 && git push origin :$1 && :
+	fixup = commit -a --amend --no-edit
+	pr = pull-request
+	s = status
+	touch = !git commit --amend --no-edit --date=\"`date`\"
+[branch]
+	autosetuprebase = always
+[push]
+	default = simple
+[color]
+	ui = false
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
